@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA Premium Live Test</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background-color: #eef2f5; 
+            color: #333;
+            padding: 20px; 
+            margin: 0;
+        }
+        .container { 
+            background: white; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 30px; 
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1); 
+            border-top: 8px solid #1a5276; 
+            border-radius: 8px;
+        }
+        .header { text-align: center; border-bottom: 2px solid #1a5276; padding-bottom: 15px; margin-bottom: 25px; }
+        .header h1 { margin: 0; color: #1a5276; font-size: 26px; }
+        .header h2 { margin: 5px 0 0; color: #555; font-size: 16px; }
+        .instructions { background: #fef9e7; padding: 15px; border-left: 5px solid #f39c12; font-size: 14px; margin-bottom: 25px; border-radius: 4px; }
+        .section-title { background: #1a5276; color: white; padding: 10px 15px; font-size: 16px; font-weight: bold; margin: 30px 0 15px 0; border-radius: 4px; }
+        .question-block { margin-bottom: 20px; padding: 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; }
+        .question-text { font-weight: 600; color: #1e293b; margin-bottom: 12px; font-size: 15px; }
+        .options { display: flex; flex-direction: column; gap: 8px; }
+        .option-label { display: flex; align-items: center; padding: 8px 12px; background: white; border: 1px solid #cbd5e1; border-radius: 4px; cursor: pointer; transition: 0.2s; font-size: 14px; }
+        .option-label:hover { background: #f1f5f9; }
+        .option-label input { margin-right: 10px; cursor: pointer; }
+        
+        /* Result Highlights */
+        .correct-answer { background-color: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; font-weight: bold; }
+        .wrong-answer { background-color: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; text-decoration: line-through; }
+        
+        .submit-btn { display: block; width: 100%; padding: 15px; background: #1a5276; color: white; border: none; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 30px; transition: 0.3s; }
+        .submit-btn:hover { background: #154360; }
+        
+        #result-box { display: none; background: #d4edda; color: #155724; border: 2px solid #28a745; padding: 20px; margin-top: 30px; text-align: center; border-radius: 8px; font-size: 22px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>12th - LIVE EXAM PORTAL</h1>
+        <h3>हँसते हुए मेरा अकेलापन Online Test (50 Questions)</h3>
+<h2 style="font-size:10px; color:#888; font-weight:normal;">
+    यह test sangam (in id-@sangam__zero) द्वारा बनाया गया है। यदि आप भी अपने लिए इसी प्रकार का online test बनवाना चाहते हैं, तो 9241967602 पर Message कर सकते हैं।</h2>
+    </div>
+
+    <div class="instructions">
+        <strong>निर्देश:</strong> सभी प्रश्नों के उत्तर दें। प्रत्येक प्रश्न के 4 विकल्प हैं। परीक्षण पूरा करने के बाद <strong>"Submit Test"</strong> पर क्लिक करें ताकि आप अपना स्कोर और सही उत्तर देख सकें।
+    </div>
+
+    <form id="quizForm">
+        
+        <!-- SECTION 01 -->
+        <div class="section-title">SECTION 01. </div>
+        
+        <script>
+            // All 50 Questions Data (Generated Dynamically for clean code)
+           const questions = [
+                // SECTION - हँसते हुए मेरा अकेलापन (मलयज) - Hindi 12th Objective Questions
+                { q: "1. 'हँसते हुए मेरा अकेलापन' के लेखक कौन हैं ?", opt: ["उदय प्रकाश", "मलयज", "मोहन राकेश", "जगदीशचन्द्र माथुर"], ans: 1 },
+                { q: "2. मलयज की कौन-सी रचना है ?", opt: ["तिरिछ", "जूठन", "सिपाही की माँ", "हँसते हुए मेरा अकेलापन"], ans: 3 },
+                { q: "3. मलयज का जन्म कहाँ हुआ था ?", opt: ["छत्तीसगढ़", "अलीगढ़", "आजमगढ़", "रामगढ़"], ans: 2 },
+                { q: "4. मलयज ने किस मंत्रालय में नौकरी की ?", opt: ["कृषि मंत्रालय", "रेल मंत्रालय", "वित्त मंत्रालय", "शिक्षा मंत्रालय"], ans: 2 },
+                { q: "5. मलयज के पिता का क्या नाम था ?", opt: ["रामनाथ वर्मा", "त्रिलोकी नाथ वर्मा", "दीनानाथ वर्मा", "इनमें से कोई नहीं"], ans: 1 },
+                { q: "6. मलयज के अनुसार, किस कर्म के बिना मानवीयता अधूरी है ?", opt: ["रचनात्मक कर्म", "आत्मपरक कर्म", "श्रेय कर्म", "इनमें कोई नहीं"], ans: 0 },
+                { q: "7. मलयज छात्र जीवन में किस रोग से ग्रसित थे ?", opt: ["मधुमेह", "कैंसर", "क्षयरोग", "हैजा"], ans: 2 },
+                { q: "8. सेब बेचने वाली लड़की की आयु कितनी थी ?", opt: ["सात-आठ साल", "दस-बारह साल", "पन्द्रह-सोलह साल", "इक्कीस-बाइस साल"], ans: 0 },
+                { q: "9. सूचना केन्द्र में लेखक को आकर्षित करने वाला अधेड़ व्यक्ति कौन था ?", opt: ["बलभद्र मिश्रा", "बलभद्र ठाकुर", "बलभद्र शर्मा", "बलभद्र वर्मा"], ans: 1 },
+                { q: "10. निम्नलिखित में से कौन-सी मलयज की आलोचना है ?", opt: ["भाषा विज्ञान", "रससिद्धान्त", "कविता से साक्षात्कार", "इनमें से कोई नहीं"], ans: 2 },
+                { q: "11. पेड़ किसलिए काटे जा रहे हैं ?", opt: ["बेचने के लिए", "ईंधन के लिए", "घर बनाने के लिए", "इनमें से कोई नहीं"], ans: 1 },
+                { q: "12. कौन-सी रचना मलयज की है ?", opt: ["रसातल यात्रा", "हुंकार", "जख्म पर फूल", "सदियों का संताप"], ans: 2 },
+                { q: "13. मलयज ने 'जख्म पर फूल' नामक कविता कब लिखी ?", opt: ["1970 ई० में", "1971 ई० में", "1972 ई० में", "1973 ई० में"], ans: 1 },
+                { q: "14. मलयज की माँ का नाम क्या था ?", opt: ["प्रभावती", "कलावती", "हीरावती", "इनमें से कोई नहीं"], ans: 0 },
+                { q: "15. मलयज ने एम०ए० किस विश्वविद्यालय से किया ?", opt: ["बनारस हिन्दू विश्वविद्यालय", "जोधपुर विश्वविद्यालय", "इलाहाबाद विश्वविद्यालय", "पटना विश्वविद्यालय"], ans: 2 },
+                { q: "16. सुरक्षा कहाँ हो सकती है ?", opt: ["घर के भीतर", "अँधेरे में", "पलायन में", "चुनौती को झेलने में"], ans: 3 },
+                { q: "17. रचने और भोगने का रिश्ता कैसा होता है ?", opt: ["द्वंद्वात्मक", "सहयोगात्मक", "नकारात्मक", "निषेधात्मक"], ans: 0 },
+                { q: "18. 'हँसते हुए मेरा अकेलापन' के लेखक हैं ?", opt: ["मोहन राकेश", "मलयज", "उदय प्रकाश", "अज्ञेय"], ans: 1 },
+                { q: "19. मलयज का जन्म हुआ था ?", opt: ["1935 ई० में", "1942 ई० में", "1944 ई० में", "1936 ई० में"], ans: 0 },
+                { q: "20. मलयज का मूल नाम था ?", opt: ["रमेश श्रीवास्तव", "भरत जी श्रीवास्तव", "सुधाकर श्रीवास्तव", "रामेश्वर श्रीवास्तव"], ans: 1 },
+                { q: "21. कौन-सी रचना मलयज की है ?", opt: ["एक चादर मैली सी", "भीनी-भीनी बीनी चदरिया", "कविता से साक्षात्कार", "मौत मुस्कुराई"], ans: 2 },
+                { q: "22. कौन-सी रचना मलयज की नहीं है ?", opt: ["जख्म पर धूल", "संवाद और एकालाप", "'रामचंद्र शुक्ल'", "सुनो राधिके"], ans: 3 },
+                { q: "23. कविता-संग्रह है ?", opt: ["'जख्म पर धूल'", "'रामचंद्र शुक्ल'", "'हँसते हुए मेरा अकेलापन'", "'कविता से साक्षात्कार'"], ans: 0 },
+                { q: "24. 'हँसते हुए मेरा अकेलापन' किस विधा में लिखित है ?", opt: ["पत्र विधा में", "डायरी विधा में", "कथा विधा में", "जीवनी विधा में"], ans: 1 },
+                { q: "25. 'हर आदमी उस संसार को रचता है जिसमें वह जीता है और भोगता है।' यह कथन किसका है ?", opt: ["जयशंकर प्रसाद का", "'अज्ञेय' का", "मलयज का", "प्रेमचंद का"], ans: 2 }
+            ];
+            // Render Questions
+            questions.forEach((item, index) => {
+                if(index === 10) document.write('<div class="section-title">SECTION 02. </div>');
+                if(index === 20) document.write('<div class="section-title">SECTION 03. </div>');
+                if(index === 30) document.write('<div class="section-title">SECTION 04. </div>');
+                if(index === 40) document.write('<div class="section-title">SECTION 05. </div>');
+
+                let optionsHTML = '';
+                item.opt.forEach((option, i) => {
+                    optionsHTML += `
+                        <label class="option-label" id="label-q${index}-opt${i}">
+                            <input type="radio" name="q${index}" value="${i}">
+                            ${String.fromCharCode(97 + i)}) ${option}
+                        </label>`;
+                });
+
+                document.write(`
+                    <div class="question-block" id="qBlock${index}">
+                        <div class="question-text">${item.q}</div>
+                        <div class="options">${optionsHTML}</div>
+                    </div>
+                `);
+            });
+        </script>
+
+        <button type="button" class="submit-btn" onclick="calculateScore()">Submit Test & Check Result</button>
+    </form>
+
+    <div id="result-box"></div>
+
+</div>
+
+<script>
+    function calculateScore() {
+        let score = 0;
+        let total = questions.length;
+
+        questions.forEach((item, index) => {
+            // Get selected option
+            let selected = document.querySelector(`input[name="q${index}"]:checked`);
+            let correctValue = item.ans;
+            
+            // Highlight correct answer permanently
+            let correctLabel = document.getElementById(`label-q${index}-opt${correctValue}`);
+            correctLabel.classList.add("correct-answer");
+
+            if (selected) {
+                let selectedValue = parseInt(selected.value);
+                if (selectedValue === correctValue) {
+                    score++;
+                } else {
+                    // Highlight wrong answer if user selected it
+                    let wrongLabel = document.getElementById(`label-q${index}-opt${selectedValue}`);
+                    wrongLabel.classList.add("wrong-answer");
+                }
+            }
+        });
+
+        // Show Score
+        let resultBox = document.getElementById('result-box');
+        resultBox.style.display = "block";
+        
+        let percentage = (score / total) * 100;
+        let message = "";
+        
+        if(percentage >= 80) message = "उत्कृष्ट प्रदर्शन! 🌟";
+        else if(percentage >= 50) message = "अच्छा प्रयास, थोड़ी और मेहनत करें! 👍";
+        else message = "आपको और अभ्यास की आवश्यकता है! 📚";
+
+        resultBox.innerHTML = `आपका स्कोर: ${score} / ${total} <br><span style="font-size:18px; color:#333;">${message}</span>`;
+        
+        // Scroll to result
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
